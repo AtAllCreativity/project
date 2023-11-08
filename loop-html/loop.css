@@ -1,0 +1,12 @@
+.container {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.confirm {
+    margin-top: 30px;
+}
