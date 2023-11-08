@@ -3,10 +3,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnRock = document.getElementById('btnRock');
     const btnPaper = document.getElementById('btnPaper');
     const btnScissor = document.getElementById('btnScissor');
+    const resetScore = document.getElementById('resetScore'); // Add a reset button
 
     let round = 1;
     let playerScore = 0;
     let computerScore = 0;
+
+    function resetGame() {
+        round = 1;
+        playerScore = 0;
+        computerScore = 0;
+        btnStart.innerText = 'Start';
+        btnRock.classList.add('hidden');
+        btnPaper.classList.add('hidden');
+        btnScissor.classList.add('hidden');
+        document.querySelectorAll('#containerAnswer h2').forEach(element => element.remove());
+        document.querySelectorAll('#containerAnswer h3').forEach(element => element.remove());
+    }
+
+    resetScore.addEventListener('click', () => {
+        resetGame();
+    });
 
     btnStart.addEventListener('click', () => {
         if (round <= 3) {
@@ -33,15 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             elementStartMessage.appendChild(startMessage);
         } else {
-            // Reset the game
-            round = 1;
-            playerScore = 0;
-            computerScore = 0;
-            btnStart.innerText = 'Start';
-            btnRock.classList.add('hidden');
-            btnPaper.classList.add('hidden');
-            btnScissor.classList.add('hidden');
-            document.querySelectorAll('#containerAnswer h3').forEach(element => element.remove());
+            resetGame();
         }
     });
 
